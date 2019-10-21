@@ -4,7 +4,7 @@ Aliyun oss filesystem storage adapter for laravel 5. You can use Aliyun OSS just
 ## Inspired By
 - [thephpleague/flysystem-aws-s3-v2](https://github.com/thephpleague/flysystem-aws-s3-v2)
 - [apollopy/flysystem-aliyun-oss](https://github.com/apollopy/flysystem-aliyun-oss) 
-- [jacobcyl/ali-oss-storage](https://packagist.org/packages/jacobcyl/ali-oss-storage) 
+- [Creatint/aliyun-oss-storage](https://packagist.org/packages/Creatint/aliyun-oss-storage) 
 
 ## Require
 - Laravel 5+ 6+
@@ -94,7 +94,7 @@ Storage::deleteDirectory($directory); // Recursively delete a directory.It will 
 
 // upgrade logs
 // new plugin for v2.0 version
-Storage::putRemoteFile('target/path/to/file/jacob.jpg', 'http://example.com/jacob.jpg'); //upload remote file to storage by remote url
+Storage::putRemoteFile('target/path/to/file/Creatint.jpg', 'http://example.com/Creatint.jpg'); //upload remote file to storage by remote url
 // new function for v2.0.1 version
 Storage::url('path/to/img.jpg') // get the file url
 ```
