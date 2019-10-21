@@ -1,9 +1,9 @@
 <?php
 
-namespace Creatintl\AliyunOSS;
+namespace Creatint\AliyunOSS;
 
-use Creatintl\AliyunOSS\Plugins\PutFile;
-use Creatintl\AliyunOSS\Plugins\PutRemoteFile;
+use Creatint\AliyunOSS\Plugins\PutFile;
+use Creatint\AliyunOSS\Plugins\PutRemoteFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;

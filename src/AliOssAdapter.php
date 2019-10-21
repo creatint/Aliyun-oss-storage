@@ -5,7 +5,7 @@
  * Time: 下午 17:07
  */
 
-namespace Creatintl\AliyunOSS;
+namespace Creatint\AliyunOSS;
 
 use Dingo\Api\Contract\Transformer\Adapter;
 use League\Flysystem\Adapter\AbstractAdapter;
