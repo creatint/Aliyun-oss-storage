@@ -1,27 +1,28 @@
-# Aliyun-oss-storage for Laravel 5+
+# Aliyun-oss-storage for Laravel 5+ 6+
 Aliyun oss filesystem storage adapter for laravel 5. You can use Aliyun OSS just like laravel Storage as usual.    
 借鉴了一些优秀的代码，综合各方，同时做了更多优化，将会添加更多完善的接口和插件，打造Laravel最好的OSS Storage扩展
 ## Inspired By
 - [thephpleague/flysystem-aws-s3-v2](https://github.com/thephpleague/flysystem-aws-s3-v2)
 - [apollopy/flysystem-aliyun-oss](https://github.com/apollopy/flysystem-aliyun-oss) 
+- [jacobcyl/ali-oss-storage](https://packagist.org/packages/jacobcyl/ali-oss-storage) 
 
 ## Require
-- Laravel 5+
+- Laravel 5+ 6+
 - cURL extension
 
 ##Installation
-In order to install AliOSS-storage, just add
+In order to install AliyunOSS-storage, just add
 
-    "jacobcyl/ali-oss-storage": "^2.1"
+    "creatint/aliyun-oss-storage": "^2.1"
 
 to your composer.json. Then run `composer install` or `composer update`.  
 Or you can simply run below command to install:
 
-    "composer require jacobcyl/ali-oss-storage:^2.1"
+    "composer require creatint/aliyun-oss-storage:^2.1"
     
 Then in your `config/app.php` add this line to providers array:
 ```php
-Jacobcyl\AliOSS\AliOssServiceProvider::class,
+Creatint\AliyunOSS\AliOssServiceProvider::class,
 ```
 ## Configuration
 Add the following in app/filesystems.php:

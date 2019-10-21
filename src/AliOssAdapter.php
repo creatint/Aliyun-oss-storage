@@ -5,7 +5,7 @@
  * Time: 下午 17:07
  */
 
-namespace Jacobcyl\AliOSS;
+namespace Creatintl\AliyunOSS;
 
 use Dingo\Api\Contract\Transformer\Adapter;
 use League\Flysystem\Adapter\AbstractAdapter;
@@ -15,7 +15,6 @@ use League\Flysystem\Util;
 use OSS\Core\OssException;
 use OSS\OssClient;
 use Log;
-use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 
 class AliOssAdapter extends AbstractAdapter
 {
@@ -562,14 +561,14 @@ class AliOssAdapter extends AbstractAdapter
 
     /**
      * @param $path
-     *
-     * @return string
+     * @return string|null
+     * @throws \Exception
      */
     public function getUrl( $path )
     {
-//        if (!$this->has($path)) throw new \Exception($path.' not found');
+        if (!$this->has($path)) throw new \Exception($path.' not found');
         try {
-            $signedUrl = $this->client->signUrl($this->bucket, $path, time() + 3600);
+            $signedUrl = $this->client->signUrl($this->bucket, $path, time() + 3600);//TODO:有效期后期自定义
         } catch (\Exception $e) {
             $signedUrl = null;
         }

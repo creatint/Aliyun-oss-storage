@@ -1,27 +1,27 @@
 {
-    "name": "jacobcyl/ali-oss-storage",
-    "description": "aliyun oss filesystem storage for laravel 5+",
+    "name": "jacobcyl/aliyun-oss-storage",
+    "description": "Aliyun oss filesystem storage for laravel 5+ 6+",
     "keywords": ["aliyun", "oss", "laravel", "filesystems", "storage"],
-    "homepage": "http://jacobcyl.github.io/Aliyun-oss-storage/",
+    "homepage": "https://github.com/creatint/Aliyun-oss-storage",
     "license": "MIT",
     "authors": [
         {
-            "name": "jacobcyl",
-            "email": "cyl.jacob@gmail.com"
+            "name": "creatint",
+            "email": "creatint@163.com"
         }
     ],
     "require": {
-        "aliyuncs/oss-sdk-php": "~2.0"
+        "aliyuncs/oss-sdk-php": "^2.3"
     },
     "autoload": {
         "psr-4": {
-            "Jacobcyl\\AliOSS\\": "src/"
+            "Creatint\\AliyunOSS\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Jacobcyl\\AliOSS\\AliOssServiceProvider"
+                "Creatint\\AliyunOSS\\AliOssServiceProvider"
             ]
         }
     }
