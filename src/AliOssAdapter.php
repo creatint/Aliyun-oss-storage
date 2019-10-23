@@ -525,7 +525,7 @@ class AliOssAdapter extends AbstractAdapter
             return null;
         }
         return ($this->ssl
-                ? 'https://' : 'http://') . ($this->isCDN ? ($this->cdnDomain ?: $this->endPoint)
+                ? 'https://' : '//') . ($this->isCDN ? ($this->cdnDomain ?: $this->endPoint)
                 : $this->bucket . '.' . $this->endPoint) . '/' . ltrim($path, '/');
         try {
             $signedUrl = $this->client->signUrl($this->bucket, $path, time() + 3600);//TODO:有效期后期自定义
