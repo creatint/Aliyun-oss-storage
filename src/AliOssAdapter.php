@@ -524,6 +524,9 @@ class AliOssAdapter extends AbstractAdapter
 //            throw new \Exception($path.' not found');
             return null;
         }
+        return ($this->ssl
+                ? 'https://' : 'http://') . ($this->isCname ? ($this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain)
+                : $this->bucket . '.' . $this->endPoint) . '/' . ltrim($path, '/');
         try {
             $signedUrl = $this->client->signUrl($this->bucket, $path, time() + 3600);//TODO:有效期后期自定义
         } catch (\Exception $e) {
