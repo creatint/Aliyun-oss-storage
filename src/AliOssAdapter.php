@@ -65,7 +65,7 @@ class AliOssAdapter extends AbstractAdapter
 
     protected $cdnDomain;
     protected $ssl;
-    protected $isCname;
+    protected $isCDN;
     //配置
     protected $options = [
         'Multipart' => 128
@@ -76,9 +76,9 @@ class AliOssAdapter extends AbstractAdapter
      *
      * @param OssClient $client
      * @param string $bucket
-     * @param string $endPoint
+     * @param string $endPoint 外网节点
      * @param bool $ssl
-     * @param bool $isCname
+     * @param bool $isCDN
      * @param bool $debug
      * @param null $prefix
      * @param array $options
@@ -88,9 +88,9 @@ class AliOssAdapter extends AbstractAdapter
         $bucket,
         $endPoint,
         $ssl,
-        $isCname = false,
+        $isCDN = false,
         $debug = false,
-        $cdnDomain,
+        $cdnDomain = '',
         $prefix = null,
         array $options = []
     )
@@ -101,7 +101,7 @@ class AliOssAdapter extends AbstractAdapter
         $this->setPathPrefix($prefix);
         $this->endPoint = $endPoint;
         $this->ssl = $ssl;
-        $this->isCname = $isCname;
+        $this->isCDN = $isCDN;
         $this->cdnDomain = $cdnDomain;
         $this->options = array_merge($this->options, $options);
     }
@@ -525,7 +525,7 @@ class AliOssAdapter extends AbstractAdapter
             return null;
         }
         return ($this->ssl
-                ? 'https://' : 'http://') . ($this->isCname ? ($this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain)
+                ? 'https://' : 'http://') . ($this->isCDN ? ($this->cdnDomain ?: $this->endPoint)
                 : $this->bucket . '.' . $this->endPoint) . '/' . ltrim($path, '/');
         try {
             $signedUrl = $this->client->signUrl($this->bucket, $path, time() + 3600);//TODO:有效期后期自定义
@@ -533,7 +533,7 @@ class AliOssAdapter extends AbstractAdapter
             $signedUrl = null;
         }
         return empty($signedUrl) ?
-            (($this->ssl ? 'https://' : 'http://') . ($this->isCname ? ($this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain) : $this->bucket . '.' . $this->endPoint) . '/' . ltrim($path, '/'))
+            (($this->ssl ? 'https://' : 'http://') . ($this->isCDN ? ($this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain) : $this->bucket . '.' . $this->endPoint) . '/' . ltrim($path, '/'))
             :
             $signedUrl;
     }
